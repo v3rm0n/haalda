@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, JoomismangActivity!</string>
     <string name="app_name">Joomismang</string>
+    <string name="title">Joomismäng</string>
+    <string name="one_player">1 mängija</string>
+    <string name="two_players">2 mängijat</string>
+    <string name="insert_names">Sisesta nimed:</string>
+    <string name="cont">Jätka</string>
+    <string name="current_player">Mängija</string>
+    <string name="word">\"sõna\"</string>
+    <string name="speak">Räägi</string>
+    <string name="results">Tulemused</string>
 
 </resources>
