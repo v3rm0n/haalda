@@ -3,6 +3,7 @@ package me.vermon.joomismang;
 import java.util.List;
 import java.util.Random;
 
+import me.vermon.haalda.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -43,6 +44,7 @@ public class GuessingActivity extends Activity{
             }
         } );
     }
+
     @Override
     public void onDestroy(){
         super.onDestroy();
@@ -61,23 +63,25 @@ public class GuessingActivity extends Activity{
     }
 
     private String getRandomWord(){
-        CharSequence[] firstLevel = getResources().getTextArray( level );
+        CharSequence[] words = getResources().getTextArray( level );
         Random r = new Random();
-        int index = r.nextInt( firstLevel.length );
-        return firstLevel[index].toString();
+        int index = r.nextInt( words.length );
+        return words[index].toString();
     }
 
     private void showDialog( boolean success, String match ){
         AlertDialog.Builder builder = new AlertDialog.Builder( this );
-        String message = success ? "Väga tubli. Proovid edasi?" : "Sina ütlesid " + match + ". Proovid uuesti?";
-        builder.setMessage( message ).setCancelable( false ).setPositiveButton( "Jah", new DialogInterface.OnClickListener(){
+        String message = success ? getResources().getString( R.string.success ) : getResources().getString( R.string.you_said ) + match
+                + getResources().getString( R.string.try_again2 );
+        builder.setMessage( message ).setCancelable( false ).setPositiveButton( getResources().getString( R.string.yes ),
+                new DialogInterface.OnClickListener(){
 
-            public void onClick( DialogInterface dialog, int id ){
-                changeWord();
-                final Button speak = (Button)findViewById( R.id.b_speak );
-                speak.setVisibility( View.VISIBLE );
-            }
-        } ).setNegativeButton( "Ei", new DialogInterface.OnClickListener(){
+                    public void onClick( DialogInterface dialog, int id ){
+                        changeWord();
+                        final Button speak = (Button)findViewById( R.id.b_speak );
+                        speak.setVisibility( View.VISIBLE );
+                    }
+                } ).setNegativeButton( getResources().getString( R.string.no ), new DialogInterface.OnClickListener(){
 
             public void onClick( DialogInterface dialog, int id ){
                 GuessingActivity.this.finish();
@@ -132,13 +136,45 @@ public class GuessingActivity extends Activity{
             progress.setVisibility( View.GONE );
             Log.d( TAG, "Error: " + error );
             AlertDialog.Builder builder = new AlertDialog.Builder( GuessingActivity.this );
-            builder.setMessage( "Tehniline viga. Palun proovi uuesti." ).setCancelable( false ).setPositiveButton( "OK", new DialogInterface.OnClickListener(){
+            String message = "";
+            switch( error ) {
+                case SpeechRecognizer.ERROR_AUDIO:
+                    message = message.concat( getResources().getString( R.string.error_audio )  );
+                    break;
+                case SpeechRecognizer.ERROR_CLIENT:
+                    message = message.concat( getResources().getString( R.string.error_client )  );
+                    break;
+                case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
+                    message = message.concat( getResources().getString( R.string.error_insufficient_permissions )  );
+                    break;
+                case SpeechRecognizer.ERROR_NETWORK:
+                    message = message.concat(getResources().getString( R.string.error_network )  );
+                    break;
+                case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
+                    message = message.concat( getResources().getString( R.string.error_network_timeout )  );
+                    break;
+                case SpeechRecognizer.ERROR_NO_MATCH:
+                    message = message.concat( getResources().getString( R.string.error_no_match )  );
+                    break;
+                case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
+                    message = message.concat( getResources().getString( R.string.error_recognizer_busy )  );
+                    break;
+                case SpeechRecognizer.ERROR_SERVER:
+                    message = message.concat( getResources().getString( R.string.error_server )  );
+                    break;
+                case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
+                    message = message.concat( getResources().getString( R.string.error_speech_timeout )  );
+                    break;
+            }
+            message = message.concat( getResources().getString( R.string.try_again ) );
+            builder.setMessage( message ).setCancelable( false ).setPositiveButton( getResources().getString( R.string.ok ),
+                    new DialogInterface.OnClickListener(){
 
-                public void onClick( DialogInterface dialog, int id ){
-                    final Button speak = (Button)findViewById( R.id.b_speak );
-                    speak.setVisibility( View.VISIBLE );
-                }
-            } );
+                        public void onClick( DialogInterface dialog, int id ){
+                            final Button speak = (Button)findViewById( R.id.b_speak );
+                            speak.setVisibility( View.VISIBLE );
+                        }
+                    } );
             AlertDialog alert = builder.create();
             alert.show();
         }

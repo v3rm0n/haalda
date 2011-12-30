@@ -7,6 +7,24 @@
     <string name="speak">Räägi</string>
     <string name="easy">Kerge</string>
     <string name="hard">Raske</string>
+    <string name="yes">Jah</string>
+    <string name="no">Ei</string>
+    <string name="ok">OK</string>
+    <string name="try_again">Palun proovige uuesti.</string>
+    <string name="success">Väga tubli. Proovid edasi?</string>
+    <string name="you_said">Sina ütlesid </string>
+    <string name="try_again2">. Proovid uuesti?</string>
+    <string name="need_konele">Sul on vaja programmi Kõnele. Kas tahad minna marketisse?</string>
+    
+    <string name="error_audio">Viga heli salvestamisel.</string>
+    <string name="error_client">Tundmatu probleem kliendi poolel.</string>
+    <string name="error_insufficient_permissions">Pole piisavalt õigusi.</string>
+    <string name="error_network">Võrguprobleemid.</string>
+    <string name="error_network_timeout">Võrguprobleemid.</string>
+    <string name="error_no_match">Ei leitud vastet serverist.</string>
+    <string name="error_recognizer_busy">Teenus on hõivatud.</string>
+    <string name="error_server">Probleemid serveriga.</string>
+    <string name="error_speech_timeout">Sisendit ei saadud.</string>
     
     <string-array name="first_level">
         <item >tere</item>
