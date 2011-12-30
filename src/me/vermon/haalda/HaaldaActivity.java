@@ -1,4 +1,4 @@
-package me.vermon.joomismang;
+package me.vermon.haalda;
 
 import me.vermon.haalda.R;
 import android.app.Activity;

@@ -1,4 +1,4 @@
-package me.vermon.joomismang;
+package me.vermon.haalda;
 
 import java.util.List;
 import java.util.Random;
