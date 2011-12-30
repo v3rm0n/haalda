@@ -5,34 +5,34 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/b_two_players"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="92dp"
-        android:text="@string/two_players" />
-
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="30dp"
-        android:layout_marginBottom="113dp"
+        android:layout_marginTop="81dp"
         android:text="@string/title"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="34dp" />
 
     <Button
-        android:id="@+id/b_one_player"
+        android:id="@+id/b_second"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/b_two_players"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:text="@string/hard" />
+
+    <Button
+        android:id="@+id/b_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/b_second"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="24dp"
-        android:text="@string/one_player" />
+        android:layout_marginBottom="38dp"
+        android:text="@string/easy" />
 
 </RelativeLayout>

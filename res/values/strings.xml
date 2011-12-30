@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Joomismang</string>
-    <string name="title">Joomismäng</string>
-    <string name="one_player">1 mängija</string>
-    <string name="two_players">2 mängijat</string>
-    <string name="insert_names">Sisesta nimed:</string>
-    <string name="cont">Jätka</string>
-    <string name="current_player">Mängija</string>
+    <string name="app_name">Häälda</string>
+    <string name="title">Häälda</string>
     <string name="word">\"sõna\"</string>
     <string name="speak">Räägi</string>
-    <string name="results">Tulemused</string>
+    <string name="easy">Kerge</string>
+    <string name="hard">Raske</string>
+    
+    <string-array name="first_level">
+        <item >tere</item>
+        <item >Pärnu</item>
+        <item >hommik</item>
+        <item >aken</item>
+        <item >puu</item>
+        <item >auto</item>
+        <item >ratas</item>
+        <item >peegel</item>
+        <item >neeger</item>
+        <item >klaas</item>
+        <item >õlu</item>
+        <item >viin</item>
+        <item >krooks</item>
+    </string-array>
+    
+    <string-array name="second_level">
+        <item >kuulilennu tee tunneli luuk</item>
+        <item >ära rohkem vala</item>
+        <item >mulle tänaseks aitab</item>
+        <item >paarist pitsist piisab</item>
+        <item >ma pean homme vara ärkama</item>
+        <item >Ega ma liiga valjusti ei räägi</item>
+    </string-array>
 
 </resources>
