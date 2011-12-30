@@ -12,8 +12,8 @@
     <string name="ok">OK</string>
     <string name="try_again">Palun proovige uuesti.</string>
     <string name="success">Väga tubli. Proovid edasi?</string>
-    <string name="you_said">Sina ütlesid </string>
-    <string name="try_again2">. Proovid uuesti?</string>
+    <string name="you_said">Sina ütlesid</string>
+    <string name="try_again2">Proovid uuesti?</string>
     <string name="need_konele">Sul on vaja programmi Kõnele. Kas tahad minna marketisse?</string>
     
     <string name="error_audio">Viga heli salvestamisel.</string>

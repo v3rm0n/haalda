@@ -71,8 +71,8 @@ public class GuessingActivity extends Activity{
 
     private void showDialog( boolean success, String match ){
         AlertDialog.Builder builder = new AlertDialog.Builder( this );
-        String message = success ? getResources().getString( R.string.success ) : getResources().getString( R.string.you_said ) + match
-                + getResources().getString( R.string.try_again2 );
+        String message = success ? getResources().getString( R.string.success ) : getResources().getString( R.string.you_said ) +" "+ match
+                + ". "+getResources().getString( R.string.try_again2 );
         builder.setMessage( message ).setCancelable( false ).setPositiveButton( getResources().getString( R.string.yes ),
                 new DialogInterface.OnClickListener(){
 
