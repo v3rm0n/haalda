@@ -39,6 +39,15 @@ public class HaaldaActivity extends Activity{
                     startActivity( guessingIntent );
                 }
             } );
+            final Button button3 = (Button)findViewById( R.id.b_third );
+            button3.setOnClickListener( new View.OnClickListener(){
+
+                public void onClick( View v ){
+                    Intent guessingIntent = new Intent( HaaldaActivity.this, GuessingActivity.class );
+                    guessingIntent.putExtra( GuessingActivity.EXTRA_LEVEL, R.array.third_level );
+                    startActivity( guessingIntent );
+                }
+            } );
         }
         else{
             downloadKonele();

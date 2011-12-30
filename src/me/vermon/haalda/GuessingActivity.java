@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class GuessingActivity extends Activity{
+public class GuessingActivity extends Activity implements RecognitionListener{
 
     private static final String TAG = GuessingActivity.class.getName();
     public static final String EXTRA_LEVEL = "EXTRA_LEVEL";
@@ -34,7 +34,7 @@ public class GuessingActivity extends Activity{
         setContentView( R.layout.guess );
         changeWord();
         this.spc = SpeechRecognizer.createSpeechRecognizer( this );
-        spc.setRecognitionListener( rl );
+        spc.setRecognitionListener( this );
         final Button speak = (Button)findViewById( R.id.b_speak );
         speak.setOnClickListener( new View.OnClickListener(){
 
@@ -71,8 +71,13 @@ public class GuessingActivity extends Activity{
 
     private void showDialog( boolean success, String match ){
         AlertDialog.Builder builder = new AlertDialog.Builder( this );
-        String message = success ? getResources().getString( R.string.success ) : getResources().getString( R.string.you_said ) +" "+ match
-                + ". "+getResources().getString( R.string.try_again2 );
+        String message = null;
+        if( match == null ){
+            message = getResources().getString( R.string.you_said_nothing )+". " + getResources().getString( R.string.try_again2 ) ;
+        }
+        else{
+            message = success ? getResources().getString( R.string.success ) : getResources().getString( R.string.you_said ) + " \"" + match + "\". " + getResources().getString( R.string.try_again2 ) ;
+        }
         builder.setMessage( message ).setCancelable( false ).setPositiveButton( getResources().getString( R.string.yes ),
                 new DialogInterface.OnClickListener(){
 
@@ -91,110 +96,108 @@ public class GuessingActivity extends Activity{
         alert.show();
     }
 
-    private RecognitionListener rl = new RecognitionListener(){
+    @Override
+    public void onRmsChanged( float rmsdB ){
+    }
 
-        @Override
-        public void onRmsChanged( float rmsdB ){
-        }
-
-        @Override
-        public void onResults( Bundle results ){
-            final ProgressBar progress = (ProgressBar)findViewById( R.id.progress );
-            progress.setVisibility( View.GONE );
-            List<String> result = results.getStringArrayList( SpeechRecognizer.RESULTS_RECOGNITION );
-            if( result != null ){
-                for( String string : result ){
-                    Log.d( TAG, "Result: " + string );
-                    boolean success = false;
-                    if( currentWord.equalsIgnoreCase( string ) ){
-                        success = true;
-                        Log.d( TAG, "We have a match!" );
-                    }
-                    showDialog( success, string );
+    @Override
+    public void onResults( Bundle bundle ){
+        final ProgressBar progress = (ProgressBar)findViewById( R.id.progress );
+        progress.setVisibility( View.GONE );
+        List<String> results = bundle.getStringArrayList( SpeechRecognizer.RESULTS_RECOGNITION );
+        boolean success = false;
+        String match = null;
+        if( results != null ){
+            for( String result : results ){
+                Log.d( TAG, "Result: " + result );
+                if( currentWord.equalsIgnoreCase( result ) ){
+                    success = true;
+                    Log.d( TAG, "We have a match!" );
                 }
-            }
-            else{
-                Log.d( TAG, "No results" );
+                match = result;
             }
         }
-
-        @Override
-        public void onReadyForSpeech( Bundle params ){
+        else{
+            Log.d( TAG, "No results" );
         }
+        showDialog( success, match );
+    }
 
-        @Override
-        public void onPartialResults( Bundle partialResults ){
+    @Override
+    public void onReadyForSpeech( Bundle params ){
+    }
+
+    @Override
+    public void onPartialResults( Bundle partialResults ){
+    }
+
+    @Override
+    public void onEvent( int eventType, Bundle params ){
+    }
+
+    @Override
+    public void onError( int error ){
+        final ProgressBar progress = (ProgressBar)findViewById( R.id.progress );
+        progress.setVisibility( View.GONE );
+        Log.d( TAG, "Error: " + error );
+        AlertDialog.Builder builder = new AlertDialog.Builder( GuessingActivity.this );
+        String message = "";
+        switch( error ) {
+            case SpeechRecognizer.ERROR_AUDIO:
+                message = message.concat( getResources().getString( R.string.error_audio ) );
+                break;
+            case SpeechRecognizer.ERROR_CLIENT:
+                message = message.concat( getResources().getString( R.string.error_client ) );
+                break;
+            case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
+                message = message.concat( getResources().getString( R.string.error_insufficient_permissions ) );
+                break;
+            case SpeechRecognizer.ERROR_NETWORK:
+                message = message.concat( getResources().getString( R.string.error_network ) );
+                break;
+            case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
+                message = message.concat( getResources().getString( R.string.error_network_timeout ) );
+                break;
+            case SpeechRecognizer.ERROR_NO_MATCH:
+                message = message.concat( getResources().getString( R.string.error_no_match ) );
+                break;
+            case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
+                message = message.concat( getResources().getString( R.string.error_recognizer_busy ) );
+                break;
+            case SpeechRecognizer.ERROR_SERVER:
+                message = message.concat( getResources().getString( R.string.error_server ) );
+                break;
+            case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
+                message = message.concat( getResources().getString( R.string.error_speech_timeout ) );
+                break;
         }
+        message = message.concat( getResources().getString( R.string.try_again ) );
+        builder.setMessage( message ).setCancelable( false ).setPositiveButton( getResources().getString( R.string.ok ), new DialogInterface.OnClickListener(){
 
-        @Override
-        public void onEvent( int eventType, Bundle params ){
-        }
-
-        @Override
-        public void onError( int error ){
-            final ProgressBar progress = (ProgressBar)findViewById( R.id.progress );
-            progress.setVisibility( View.GONE );
-            Log.d( TAG, "Error: " + error );
-            AlertDialog.Builder builder = new AlertDialog.Builder( GuessingActivity.this );
-            String message = "";
-            switch( error ) {
-                case SpeechRecognizer.ERROR_AUDIO:
-                    message = message.concat( getResources().getString( R.string.error_audio )  );
-                    break;
-                case SpeechRecognizer.ERROR_CLIENT:
-                    message = message.concat( getResources().getString( R.string.error_client )  );
-                    break;
-                case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
-                    message = message.concat( getResources().getString( R.string.error_insufficient_permissions )  );
-                    break;
-                case SpeechRecognizer.ERROR_NETWORK:
-                    message = message.concat(getResources().getString( R.string.error_network )  );
-                    break;
-                case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
-                    message = message.concat( getResources().getString( R.string.error_network_timeout )  );
-                    break;
-                case SpeechRecognizer.ERROR_NO_MATCH:
-                    message = message.concat( getResources().getString( R.string.error_no_match )  );
-                    break;
-                case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
-                    message = message.concat( getResources().getString( R.string.error_recognizer_busy )  );
-                    break;
-                case SpeechRecognizer.ERROR_SERVER:
-                    message = message.concat( getResources().getString( R.string.error_server )  );
-                    break;
-                case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
-                    message = message.concat( getResources().getString( R.string.error_speech_timeout )  );
-                    break;
+            public void onClick( DialogInterface dialog, int id ){
+                final Button speak = (Button)findViewById( R.id.b_speak );
+                speak.setVisibility( View.VISIBLE );
             }
-            message = message.concat( getResources().getString( R.string.try_again ) );
-            builder.setMessage( message ).setCancelable( false ).setPositiveButton( getResources().getString( R.string.ok ),
-                    new DialogInterface.OnClickListener(){
+        } );
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 
-                        public void onClick( DialogInterface dialog, int id ){
-                            final Button speak = (Button)findViewById( R.id.b_speak );
-                            speak.setVisibility( View.VISIBLE );
-                        }
-                    } );
-            AlertDialog alert = builder.create();
-            alert.show();
-        }
+    @Override
+    public void onEndOfSpeech(){
+        Log.d( TAG, "User stopped talking" );
+        final ProgressBar progress = (ProgressBar)findViewById( R.id.progress );
+        progress.setVisibility( View.VISIBLE );
+    }
 
-        @Override
-        public void onEndOfSpeech(){
-            Log.d( TAG, "User stopped talking" );
-            final ProgressBar progress = (ProgressBar)findViewById( R.id.progress );
-            progress.setVisibility( View.VISIBLE );
-        }
+    @Override
+    public void onBufferReceived( byte[] buffer ){
+    }
 
-        @Override
-        public void onBufferReceived( byte[] buffer ){
-        }
+    @Override
+    public void onBeginningOfSpeech(){
+        Log.d( TAG, "User started talking" );
 
-        @Override
-        public void onBeginningOfSpeech(){
-            Log.d( TAG, "User started talking" );
-
-        }
-    };
+    }
 
 }

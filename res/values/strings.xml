@@ -13,6 +13,7 @@
     <string name="try_again">Palun proovige uuesti.</string>
     <string name="success">Väga tubli. Proovid edasi?</string>
     <string name="you_said">Sina ütlesid</string>
+    <string name="you_said_nothing">Sa ei öelnud midagi</string>
     <string name="try_again2">Proovid uuesti?</string>
     <string name="need_konele">Sul on vaja programmi Kõnele. Kas tahad minna marketisse?</string>
     
@@ -40,15 +41,48 @@
         <item >õlu</item>
         <item >viin</item>
         <item >krooks</item>
+        <item >proosit</item>
+        <item >õhtu</item>
+        <item >kaev</item>
+        <item >laev</item>
+        <item >uks</item>
+        <item >Tallinn</item>
+        <item >Peeter</item>
+        <item >vaas</item>
+        <item >tass</item>
+        <item >sein</item>
+        <item >laud</item>
     </string-array>
     
     <string-array name="second_level">
-        <item >kuulilennu tee tunneli luuk</item>
-        <item >ära rohkem vala</item>
-        <item >mulle tänaseks aitab</item>
-        <item >paarist pitsist piisab</item>
-        <item >ma pean homme vara ärkama</item>
-        <item >Ega ma liiga valjusti ei räägi</item>
+        <item >diktsioon</item>
+        <item >diskursus</item>
+        <item >sünergia</item>
+        <item >autobuss</item>
+        <item >raadiojaam</item>
+        <item >televiisor</item>
+        <item >ahjuroop</item>
+        <item >kalender</item>
+        <item >pühapäev</item>
+        <item >kaubaauto</item>
+        <item >vulgaarne bulgaarlane</item>
+        <item >revolutsioon</item>
+        <item >ignoreerima</item>
+        <item >gibraltar</item>
     </string-array>
+    
+    <string-array name="third_level">
+        <item >Ära rohkem vala</item>
+        <item >Mulle tänaseks aitab</item>
+        <item >Paarist pitsist piisab</item>
+        <item >Ma pean homme vara ärkama</item>
+        <item >Ega ma liiga valjusti ei räägi</item>
+        <item >Sa ei ole minu maitse</item>
+        <item >Ma ei oska laulda</item>
+        <item >Äkki peaks magama minema</item>
+        <item >Peaks vähem jooma</item>
+    </string-array>
+        <string name="impossible">Võimatu</string>
+        <string name="desc">Ehk proovi öelda sõnu purjus peaga</string>
 
 </resources>

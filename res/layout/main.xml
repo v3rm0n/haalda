@@ -18,12 +18,31 @@
         android:textSize="34dp" />
 
     <Button
-        android:id="@+id/b_second"
+        android:id="@+id/b_third"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="30dp"
+        android:text="@string/impossible" />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/title"
+        android:layout_marginLeft="50dp"
+        android:text="@string/desc"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/b_second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/b_third"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="30dp"
         android:text="@string/hard" />
 
     <Button
@@ -32,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/b_second"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/easy" />
 
 </RelativeLayout>
