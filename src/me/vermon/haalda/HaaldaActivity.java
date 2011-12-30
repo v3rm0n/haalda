@@ -74,7 +74,6 @@ public class HaaldaActivity extends Activity{
                         Uri marketUri = Uri.parse( "market://details?id=" + KONELE );
                         Intent marketIntent = new Intent( Intent.ACTION_VIEW, marketUri );
                         startActivity( marketIntent );
-                        HaaldaActivity.this.finish();
                     }
                 } ).setNegativeButton( getResources().getString( R.string.no ), new DialogInterface.OnClickListener(){
 
