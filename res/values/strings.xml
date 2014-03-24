@@ -16,7 +16,6 @@
     <string name="you_said_nothing">Sa ei öelnud midagi</string>
     <string name="try_again2">Proovid uuesti?</string>
     <string name="need_konele">Sul on vaja programmi Kõnele. Kas tahad minna marketisse?</string>
-    
     <string name="error_audio">Viga heli salvestamisel.</string>
     <string name="error_client">Tundmatu probleem kliendi poolel.</string>
     <string name="error_insufficient_permissions">Pole piisavalt õigusi.</string>
@@ -26,63 +25,57 @@
     <string name="error_recognizer_busy">Teenus on hõivatud.</string>
     <string name="error_server">Probleemid serveriga.</string>
     <string name="error_speech_timeout">Sisendit ei saadud.</string>
-    
+
     <string-array name="first_level">
-        <item >tere</item>
-        <item >Pärnu</item>
-        <item >hommik</item>
-        <item >aken</item>
-        <item >puu</item>
-        <item >auto</item>
-        <item >ratas</item>
-        <item >peegel</item>
-        <item >neeger</item>
-        <item >klaas</item>
-        <item >õlu</item>
-        <item >viin</item>
-        <item >krooks</item>
-        <item >proosit</item>
-        <item >õhtu</item>
-        <item >kaev</item>
-        <item >laev</item>
-        <item >uks</item>
-        <item >Tallinn</item>
-        <item >Peeter</item>
-        <item >vaas</item>
-        <item >tass</item>
-        <item >sein</item>
-        <item >laud</item>
+        <item>tere</item>
+        <item>Pärnu</item>
+        <item>hommik</item>
+        <item>aken</item>
+        <item>puu</item>
+        <item>auto</item>
+        <item>ratas</item>
+        <item>peegel</item>
+        <item>klaas</item>
+        <item>õlu</item>
+        <item>viin</item>
+        <item>krooks</item>
+        <item>proosit</item>
+        <item>õhtu</item>
+        <item>kaev</item>
+        <item>laev</item>
+        <item>uks</item>
+        <item>Tallinn</item>
+        <item>Peeter</item>
+        <item>vaas</item>
+        <item>tass</item>
+        <item>sein</item>
+        <item>laud</item>
     </string-array>
-    
     <string-array name="second_level">
-        <item >diktsioon</item>
-        <item >diskursus</item>
-        <item >sünergia</item>
-        <item >autobuss</item>
-        <item >raadiojaam</item>
-        <item >televiisor</item>
-        <item >ahjuroop</item>
-        <item >kalender</item>
-        <item >pühapäev</item>
-        <item >kaubaauto</item>
-        <item >vulgaarne bulgaarlane</item>
-        <item >revolutsioon</item>
-        <item >ignoreerima</item>
-        <item >gibraltar</item>
+        <item>diktsioon</item>
+        <item>diskursus</item>
+        <item>sünergia</item>
+        <item>autobuss</item>
+        <item>raadiojaam</item>
+        <item>televiisor</item>
+        <item>ahjuroop</item>
+        <item>kalender</item>
+        <item>pühapäev</item>
+        <item>kaubaauto</item>
+        <item>vulgaarne bulgaarlane</item>
+        <item>revolutsioon</item>
+        <item>ignoreerima</item>
+        <item>gibraltar</item>
     </string-array>
-    
     <string-array name="third_level">
-        <item >Ära rohkem vala</item>
-        <item >Mulle tänaseks aitab</item>
-        <item >Paarist pitsist piisab</item>
-        <item >Ma pean homme vara ärkama</item>
-        <item >Ega ma liiga valjusti ei räägi</item>
-        <item >Sa ei ole minu maitse</item>
-        <item >Ma ei oska laulda</item>
-        <item >Äkki peaks magama minema</item>
-        <item >Peaks vähem jooma</item>
+        <item>Kummitus kummitas kummutis kummikut</item>
+        <item>Musta lehma saba valge lehma taga, valge lehma saba musta lehma taga</item>
+        <item>Esimese esimehe esimene esinemine</item>
+        <item>Nägin suveööunenäos Jüriööülestõusu</item>
+        <item>Vahetevahel on ka vahede vahel ja nende vahede vahel asuvatel vahedel vahed vahel</item>
     </string-array>
-        <string name="impossible">Võimatu</string>
-        <string name="desc">Ehk proovi öelda sõnu purjus peaga</string>
+
+    <string name="impossible">Võimatu</string>
+    <string name="desc">Vali tase, vajuta nupule "räägi" ning ürita hääldada ettetulevat sõna või lauset</string>
 
 </resources>
