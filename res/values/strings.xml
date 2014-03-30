@@ -3,28 +3,28 @@
 
     <string name="app_name">Häälda</string>
     <string name="title">Häälda</string>
-    <string name="word">\"sõna\"</string>
-    <string name="speak">Räägi</string>
-    <string name="easy">Kerge</string>
-    <string name="hard">Raske</string>
-    <string name="yes">Jah</string>
-    <string name="no">Ei</string>
+    <string name="word">\"word\"</string>
+    <string name="speak">Speak</string>
+    <string name="easy">Easy</string>
+    <string name="hard">Hard</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="ok">OK</string>
-    <string name="try_again">Palun proovige uuesti.</string>
-    <string name="success">Väga tubli. Proovid edasi?</string>
-    <string name="you_said">Sina ütlesid</string>
-    <string name="you_said_nothing">Sa ei öelnud midagi</string>
-    <string name="try_again2">Proovid uuesti?</string>
-    <string name="need_konele">Sul on vaja programmi Kõnele. Kas tahad minna marketisse?</string>
-    <string name="error_audio">Viga heli salvestamisel.</string>
-    <string name="error_client">Tundmatu probleem kliendi poolel.</string>
-    <string name="error_insufficient_permissions">Pole piisavalt õigusi.</string>
-    <string name="error_network">Võrguprobleemid.</string>
-    <string name="error_network_timeout">Võrguprobleemid.</string>
-    <string name="error_no_match">Ei leitud vastet serverist.</string>
-    <string name="error_recognizer_busy">Teenus on hõivatud.</string>
-    <string name="error_server">Probleemid serveriga.</string>
-    <string name="error_speech_timeout">Sisendit ei saadud.</string>
+    <string name="try_again">Please try again.</string>
+    <string name="success">Very good! Try another one?</string>
+    <string name="you_said">You said</string>
+    <string name="you_said_nothing">You didn\'t say anything</string>
+    <string name="try_again2">Try again?</string>
+    <string name="need_konele">You need a program called Kõnele for voice recognition. Do you want to go to the market?</string>
+    <string name="error_audio">Problem when recording audio.</string>
+    <string name="error_client">Unknown problem on the client side.</string>
+    <string name="error_insufficient_permissions">Insufficient permissions.</string>
+    <string name="error_network">Network error.</string>
+    <string name="error_network_timeout">Network timeout.</string>
+    <string name="error_no_match">No match from the server.</string>
+    <string name="error_recognizer_busy">The service is busy.</string>
+    <string name="error_server">Server error.</string>
+    <string name="error_speech_timeout">No speech input detected.</string>
 
     <string-array name="first_level">
         <item>tere</item>
@@ -75,7 +75,7 @@
         <item>Vahetevahel on ka vahede vahel ja nende vahede vahel asuvatel vahedel vahed vahel</item>
     </string-array>
 
-    <string name="impossible">Võimatu</string>
-    <string name="desc">Vali tase, vajuta nupule "räägi" ning ürita hääldada ettetulevat sõna või lauset</string>
+    <string name="impossible">Impossible</string>
+    <string name="desc">Choose a level, touch the button \"Speak\" and try to pronounce the word in Estonian.</string>
 
 </resources>
